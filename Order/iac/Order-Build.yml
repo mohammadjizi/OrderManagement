@@ -53,4 +53,3 @@ steps:
     repository: 'order'
     command: 'buildAndPush'
     Dockerfile: '$(System.DefaultWorkingDirectory)/Order/Dockerfile'
-    tags: 'mohammadjizi/order'
