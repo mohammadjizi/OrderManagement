@@ -20,15 +20,6 @@ steps:
     performMultiLevelLookup: true
     includePreviewVersions: true # Required for preview versions
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your commands here
-      
-      ls $(System.DefaultWorkingDirectory)
-      
-
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
