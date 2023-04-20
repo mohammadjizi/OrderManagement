@@ -20,14 +20,6 @@ steps:
     performMultiLevelLookup: true
     includePreviewVersions: true # Required for preview versions
 
-- task: DotNetCoreCLI@2
-  displayName: 'dot net restore'
-  inputs:
-    command: 'restore'
-    feedsToUse: 'select'
-    vstsFeed: 'my-vsts-feed' # A series of numbers and letters
-    projects: '**/*.csproj'
-
 - task: Bash@3
   inputs:
     targetType: 'inline'
@@ -35,10 +27,19 @@ steps:
       # Write your commands here
       
       echo $(System.DefaultWorkingDirectory)
+
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet restore'
+  inputs:
+    command: 'restore'
+    feedsToUse: 'select'
+    vstsFeed: 'my-vsts-feed' # A series of numbers and letters
+    projects: '**/*.csproj'
   
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet build $(buildConfiguration)'
+  displayName: 'dotnet build'
   inputs:
     command: 'build'
     projects: '$(System.DefaultWorkingDirectory)/OrderManagement/Order/Order.csproj'
