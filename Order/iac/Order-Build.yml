@@ -36,3 +36,20 @@ steps:
     projects: '$(System.DefaultWorkingDirectory)/Order/Order.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
+- task: DockerInstaller@0
+  inputs:
+    dockerVersion: '17.09.0-ce'
+
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      
+      ls $(System.DefaultWorkingDirectory)/Order
+
+- task: Docker@2
+  inputs:
+    command: 'buildAndPush'
+    Dockerfile: '$(System.DefaultWorkingDirectory)/Order/Dockerfile'
