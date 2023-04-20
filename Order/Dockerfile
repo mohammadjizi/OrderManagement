@@ -9,6 +9,7 @@ WORKDIR /src
 RUN ls
 COPY ["Order.csproj", "Order/"]
 RUN dotnet restore "Order/Order.csproj"
+RUN ls
 COPY . .
 WORKDIR "/src/Order"
 RUN ls
