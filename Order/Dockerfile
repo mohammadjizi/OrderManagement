@@ -6,7 +6,8 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 #WORKDIR /src
-RUN ls $(System.DefaultWorkingDirectory)
+RUN ls
+RUN cd Order
 RUN ls
 COPY ["Order.csproj", "Order/"]
 RUN dotnet restore "Order/Order.csproj"
