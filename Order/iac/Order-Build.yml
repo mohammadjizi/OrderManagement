@@ -28,6 +28,13 @@ steps:
     feedsToUse: 'select'
     projects: '$(System.DefaultWorkingDirectory)/Order/Order.csproj'
   
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      
+      ls $(System.DefaultWorkingDirectory)/Order
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
@@ -40,14 +47,6 @@ steps:
   inputs:
     dockerVersion: '17.09.0-ce'
 
-
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your commands here
-      
-      ls $(System.DefaultWorkingDirectory)/Order
 
 - task: Docker@2
   inputs:
