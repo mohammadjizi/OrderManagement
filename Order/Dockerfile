@@ -5,7 +5,7 @@ WORKDIR /app
 #EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-WORKDIR /src
+#WORKDIR /src
 RUN ls
 COPY ["Order.csproj", "Order/"]
 RUN dotnet restore "Order/Order.csproj"
