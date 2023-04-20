@@ -6,8 +6,8 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["Order/Order.csproj", "Order/"]
-RUN dotnet restore "Order/Order.csproj"
+COPY ["Order.csproj", "Order/"]
+RUN dotnet restore "Order.csproj"
 COPY . .
 WORKDIR "/src/Order"
 RUN dotnet build "Order.csproj" -c Release -o /app/build
