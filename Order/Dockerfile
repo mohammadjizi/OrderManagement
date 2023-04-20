@@ -5,12 +5,11 @@ WORKDIR /app
 #EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-#WORKDIR /src
-RUN ls lib
-COPY ["Order.csproj", "Order/"]
+WORKDIR /src
+COPY [., "Order/"]
 RUN dotnet restore "Order/Order.csproj"
 RUN ls
-COPY . .
+#COPY . .
 WORKDIR "/src/Order"
 RUN ls
 RUN dotnet build "Order.csproj" -c Release -o /app/build
