@@ -30,6 +30,6 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
   inputs:
     command: 'build'
-    projects: '../Order.csproj'
+    projects: '$(System.DefaultWorkingDirectory)/OrderManagement/Order/Order.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
