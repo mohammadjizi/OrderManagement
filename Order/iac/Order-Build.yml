@@ -26,7 +26,8 @@ steps:
     script: |
       # Write your commands here
       
-      echo $(System.DefaultWorkingDirectory)
+      ls $(System.DefaultWorkingDirectory)
+      
 
 
 - task: DotNetCoreCLI@2
