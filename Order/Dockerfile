@@ -7,7 +7,7 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 #COPY [., "Order/"]
-COPY . .
+COPY . "Order/"
 RUN ls
 RUN dotnet restore "Order/Order.csproj"
 
