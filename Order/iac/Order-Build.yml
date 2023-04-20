@@ -47,8 +47,10 @@ steps:
   inputs:
     dockerVersion: '17.09.0-ce'
 
-
 - task: Docker@2
   inputs:
+    containerRegistry: DockerHubServiceConnection
+    repository: order
     command: 'buildAndPush'
     Dockerfile: '$(System.DefaultWorkingDirectory)/Order/Dockerfile'
+    tags: 'mohammadjizi/order'
