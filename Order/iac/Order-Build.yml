@@ -61,7 +61,7 @@ steps:
     script: |
       # Write your commands here
       
-      ls $(Build.SourcesDirectory)/Order
+      ls $(Build.SourcesDirectory)/Order/iac
 
 - task: Bash@3
   inputs:
