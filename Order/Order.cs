@@ -6,4 +6,10 @@ public class Order
 
     public string Name { get; set; }
 
+    public Order (string id, string name)
+    {
+        this.Id=id;
+        this.Name=name;
+    }
+
 }

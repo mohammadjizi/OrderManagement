@@ -25,7 +25,7 @@ public class OrderController : ControllerBase
         List<Order> orders = new List<Order>();
         for (int i = 0; i < 5; i++)
         {
-            orders.Add(new Order() { Id = i.ToString(), Name = ("Order_" + i.ToString()) });
+            orders.Add(new Order(i.ToString(), "Order_" + i.ToString()));
         }
         return orders;
     }
@@ -40,15 +40,14 @@ public class OrderController : ControllerBase
             //try
             //{
 
-                for (int i = 0; i < count; i++)
-                {
+            for (int i = 0; i < count; i++)
+            {
 
-                    var order = JsonSerializer.Serialize(new Order()
-                    { Id = i.ToString(), Name = ("Order_" + i.ToString()) });
+                var order = JsonSerializer.Serialize(new Order(i.ToString(), "Order_" + i.ToString()));
 
-                    var dr = await p.ProduceAsync("order",
-                    new Message<Null, string> { Value = order });
-                }
+                var dr = await p.ProduceAsync("order",
+                new Message<Null, string> { Value = order });
+            }
             //}
             //catch (ProduceException<Null, string> e)
             //{

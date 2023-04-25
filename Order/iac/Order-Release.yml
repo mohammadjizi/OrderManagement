@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order
+  labels:
+    app: order
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: order
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 20%
+  template:
+    metadata:
+      labels:
+        app: order
+    spec:
+      containers:
+      - name: order-container
+        image: mohammadjizi/order
+        ports:
+        - containerPort: 8080     
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: order
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080   
