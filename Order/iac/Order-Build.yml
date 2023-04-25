@@ -55,13 +55,11 @@ steps:
     Dockerfile: '$(System.DefaultWorkingDirectory)/Order/Dockerfile'
     tags: 'latest'
 
-- task: Bash@3
+- task: CopyFiles@2
   inputs:
-    targetType: 'inline'
-    script: |
-      # Write your commands here
-      
-      ls $(Build.SourcesDirectory)/Order/iac
+    sourceFolder: '$(Build.SourcesDirectory)/Order/iac'
+    contents: '*'
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: Bash@3
   inputs:
