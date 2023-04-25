@@ -61,7 +61,7 @@ steps:
     script: |
       # Write your commands here
       
-      ls $(Build.SourcesDirectory)
+      ls $(Build.SourcesDirectory)/Order
 
 - task: Bash@3
   inputs:
