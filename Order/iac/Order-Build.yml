@@ -61,6 +61,11 @@ steps:
     contents: '*'
     targetFolder: '$(Build.ArtifactStagingDirectory)'
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: order
+
 - task: Bash@3
   inputs:
     targetType: 'inline'
